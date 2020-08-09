@@ -5,6 +5,7 @@ public class ArgMethod {
         System.out.println("Hello, " + name);
     }
 
+    @SuppressWarnings("checkstyle:WhitespaceAround")
     public static void main(String[] args) {
         String name = "Petr Arsentev";
         int age = 33;
@@ -13,8 +14,8 @@ public class ArgMethod {
 
         ArgMethod.hello(name);
 
-        ArgMethod.hello(age+"");
+        ArgMethod.hello(age + "");
 
-        ArgMethod.hello(name+" " +name+ " " +name);
+        ArgMethod.hello(name + " " + name + " " + name);
     }
 }
