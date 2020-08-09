@@ -5,6 +5,8 @@ public class ArgMethod {
         System.out.println("Hello, " + name);
     }
 
+  //внесенные изменения:
+
     @SuppressWarnings("checkstyle:WhitespaceAround")
     public static void main(String[] args) {
         String name = "Petr Arsentev";
