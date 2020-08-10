@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class SqAreaTest {
 
     @Test
-    public void square() {
+    public void WhenP6K2Then2() {
         int p = 6;
         int k = 2;
         double expected = 2;
