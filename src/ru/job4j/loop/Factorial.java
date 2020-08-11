@@ -1,5 +1,5 @@
 package ru.job4j.loop;
-
+//Factorial
 public class Factorial {
     public static int calc(int n) {
         int result = 1;
