@@ -1,7 +1,7 @@
 package ru.job4j.collection;
 
 import java.util.Comparator;
-
+//push
 public class DepDescComp implements Comparator<String> {
     @Override
     public int compare(String o1, String o2) {

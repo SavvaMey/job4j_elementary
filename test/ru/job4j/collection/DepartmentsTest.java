@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static ru.job4j.collection.Departments.sortAsc;
 import static ru.job4j.collection.Departments.sortDesc;
-
+//push
 public class DepartmentsTest {
     @Test
     public void whenMissed() {
