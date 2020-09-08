@@ -25,4 +25,12 @@ public class Departments {
     public static void sortDesc(List<String> orgs) {
         Collections.sort(orgs, new DepDescComp());
     }
+
+    public static void main(String[] args) {
+        List<String> input = Arrays.asList("K2/SK2", "K2/SK1/SSK2", "K2/SK1/SSK1", "K2", "K2/SK1/SSK2", "K1", "K1/SK2", "K1/SK1",
+                "K1/SK1/SSK1", "K1/SK1/SSK2");
+        sortDesc(input);
+        System.out.println(input);
+        System.out.println("alex".compareTo("alex"));
+    }
 }
