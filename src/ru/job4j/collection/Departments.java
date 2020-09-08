@@ -31,6 +31,5 @@ public class Departments {
                 "K1/SK1/SSK1", "K1/SK1/SSK2");
         sortDesc(input);
         System.out.println(input);
-        System.out.println("alex".compareTo("alex"));
     }
 }
