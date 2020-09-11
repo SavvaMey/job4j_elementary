@@ -9,12 +9,11 @@ import static org.junit.Assert.*;
 public class DepDescCompTest {
     @Test
     public void compare() {
-        //less
         int rsl = new DepDescComp().compare(
                 "K2/SK1/SSK2",
                 "K2/SK1/SSK1"
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -23,6 +22,6 @@ public class DepDescCompTest {
                 "K2",
                 "K2/SK1"
         );
-        assertThat(rsl, greaterThan(0));
+        assertThat(rsl, lessThan(0));
     }
 }

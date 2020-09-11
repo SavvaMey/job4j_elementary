@@ -34,31 +34,4 @@ public class DepartmentsTest {
         sortAsc(input);
         assertThat(input, is(expect));
     }
-
-    @Test
-    public void whenReverseSort() {
-        List<String> input = Arrays.asList("k2/sk2", "k1", "k1/sk1", "k2", "k2/sk1", "k2/sk1/ssk1");
-        List<String> expect = Arrays.asList("k2/sk2", "k2/sk1/ssk1", "k2/sk1", "k2", "k1/sk1", "k1");
-        sortDesc(input);
-        assertThat(input, is(expect));
-    }
-
-    @Test
-    public void whenReverseSortAnother() {
-        List<String> input = Arrays.asList("K2/SK1/SSK2", "K2/SK1/SSK1");
-        List<String> expect = Arrays.asList("K2/SK1/SSK2", "K2/SK1/SSK1");
-        sortDesc(input);
-        assertThat(input, is(expect));
-    }
-
-    @Test
-    public void whenReverseSortAnotherTwo() {
-        List<String> input = Arrays.asList("K2", "K2/SK1");
-        List<String> expect = Arrays.asList("K2/SK1", "K2");
-        sortDesc(input);
-        assertThat(input, is(expect));
-    }
-
-
-
 }
