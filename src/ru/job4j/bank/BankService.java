@@ -31,7 +31,7 @@ public class BankService {
             Optional<Account> rsl = users.get(user).stream().filter(
                     account -> account.getRequisite().equals(requisite)
             ).findFirst();
-            return rsl.get();
+            return rsl.orElse(null);
         }
         return null;
     }
