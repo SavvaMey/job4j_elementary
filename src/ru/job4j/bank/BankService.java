@@ -19,6 +19,7 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
+        // test
         Optional<User> rsl = users.keySet().stream().filter(
                 user -> user.getPassport().equals(passport)
         ).findFirst();
@@ -26,6 +27,7 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
+        // test
         User user = findByPassport(passport);
         if (user != null) {
             Optional<Account> rsl = users.get(user).stream().filter(
@@ -47,12 +49,21 @@ public class BankService {
         return false;
     }
 
+//    public static void main(String[] args) {
+//        List<Account> accounts = new ArrayList<>();
+//        String requisite = "3fdsbb9";
+//        accounts.add(new Account("3fdsbb9", 140));
+//        int index = accounts.indexOf(new Account(requisite, -1));
+//        Account find = accounts.get(index);
+//        System.out.println(find.getRequisite() + " -> " + find.getBalance());
+//    }
     public static void main(String[] args) {
-        List<Account> accounts = new ArrayList<>();
-        String requisite = "3fdsbb9";
-        accounts.add(new Account("3fdsbb9", 140));
-        int index = accounts.indexOf(new Account(requisite, -1));
-        Account find = accounts.get(index);
-        System.out.println(find.getRequisite() + " -> " + find.getBalance());
+        BankService bank = new BankService();
+        bank.addUser(new User("321", "Petr Arsentev"));
+        bank.addAccount("321", new Account("3fdsbb9", 140));
+        User opt = bank.findByPassport("3211");
+        Account account = bank.findByRequisite("3211", "3fdsbb9");
+        System.out.println(account);
+        System.out.println(opt);
     }
 }
