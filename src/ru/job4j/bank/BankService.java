@@ -10,7 +10,7 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
+        User user = findByPassport(passport).get();
         if (user != null) {
             if (!users.get(user).contains(account)) {
                 users.get(user).add(account);
@@ -18,29 +18,27 @@ public class BankService {
         }
     }
 
-    public User findByPassport(String passport) {
-        // test
-        Optional<User> rsl = users.keySet().stream().filter(
+    public Optional<User> findByPassport(String passport) {
+        return users.keySet().stream().filter(
                 user -> user.getPassport().equals(passport)
         ).findFirst();
-        return rsl.orElse(null);
     }
 
-    public Account findByRequisite(String passport, String requisite) {
+    public Optional<Account> findByRequisite(String passport, String requisite) {
         // test
-        User user = findByPassport(passport);
-        if (user != null) {
-            Optional<Account> rsl = users.get(user).stream().filter(
+        Optional<User> user = findByPassport(passport);
+        Optional<Account> rsl = Optional.empty();
+        if (user.isPresent()) {
+             rsl  = users.get(user.get()).stream().filter(
                     account -> account.getRequisite().equals(requisite)
             ).findFirst();
-            return rsl.orElse(null);
         }
-        return null;
+        return rsl;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
-        Account accountSrc = findByRequisite(srcPassport, srcRequisite);
-        Account accountDest = findByRequisite(destPassport, destRequisite);
+        Account accountSrc = findByRequisite(srcPassport, srcRequisite).get();
+        Account accountDest = findByRequisite(destPassport, destRequisite).get();
         if (accountSrc != null && accountDest != null && accountSrc.getBalance() >= amount) {
             accountSrc.setBalance(accountSrc.getBalance() - amount);
             accountDest.setBalance(accountDest.getBalance() + amount);
@@ -61,8 +59,8 @@ public class BankService {
         BankService bank = new BankService();
         bank.addUser(new User("321", "Petr Arsentev"));
         bank.addAccount("321", new Account("3fdsbb9", 140));
-        User opt = bank.findByPassport("3211");
-        Account account = bank.findByRequisite("3211", "3fdsbb9");
+        User opt = bank.findByPassport("3211").get();
+        Account account = bank.findByRequisite("321", "3fdsbb9").get();
         System.out.println(account);
         System.out.println(opt);
     }
